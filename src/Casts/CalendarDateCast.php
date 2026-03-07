@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Maarheeze\CalendarDate\Laravel\Casts;
 
-use DateTimeInterface;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Database\Eloquent\Model;
 use Maarheeze\CalendarDate\CalendarDate;
@@ -26,10 +25,6 @@ class CalendarDateCast implements CastsAttributes
     {
         if ($value === null) {
             return null;
-        }
-
-        if ($value instanceof DateTimeInterface) {
-            return CalendarDate::instance($value);
         }
 
         if (is_string($value)) {

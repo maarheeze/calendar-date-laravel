@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use DateTimeImmutable;
 use Illuminate\Database\Eloquent\Model;
 use Maarheeze\CalendarDate\CalendarDate;
 use Maarheeze\CalendarDate\Laravel\Casts\CalendarDateCast;
@@ -21,16 +20,6 @@ class CalendarDateCastTest extends TestCase
     public function testGetReturnsCalendarDateFromString(): void
     {
         $result = $this->createCalendarDateCast()->get($this->createModelStub(), 'date', '2000-01-01', []);
-
-        $this->assertInstanceOf(CalendarDate::class, $result);
-        $this->assertEquals('2000-01-01', $result->format('Y-m-d'));
-    }
-
-    public function testGetReturnsCalendarDateFromDateTimeInterface(): void
-    {
-        $dateTime = new DateTimeImmutable('2000-01-01');
-
-        $result = $this->createCalendarDateCast()->get($this->createModelStub(), 'date', $dateTime, []);
 
         $this->assertInstanceOf(CalendarDate::class, $result);
         $this->assertEquals('2000-01-01', $result->format('Y-m-d'));
