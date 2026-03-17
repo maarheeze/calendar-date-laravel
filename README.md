@@ -56,4 +56,4 @@ public function rules(): array
 
 ## License
 
-BSD-3
+MIT
