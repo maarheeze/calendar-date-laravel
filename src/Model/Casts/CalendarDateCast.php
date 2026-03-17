@@ -2,16 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Maarheeze\CalendarDate\Laravel\Casts;
+namespace Maarheeze\CalendarDate\Laravel\Model\Casts;
 
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Database\Eloquent\Model;
 use Maarheeze\CalendarDate\CalendarDate;
 use UnexpectedValueException;
 
-use function get_debug_type;
 use function is_string;
-use function sprintf;
 
 /**
  * @implements CastsAttributes<CalendarDate, mixed>
@@ -31,13 +29,12 @@ class CalendarDateCast implements CastsAttributes
             return CalendarDate::createFromFormat(CalendarDate::DEFAULT_STRING_FORMAT, $value);
         }
 
-        throw new UnexpectedValueException(
-            sprintf('Cannot cast value of type %s to CalendarDate', get_debug_type($value)),
-        );
+        throw new UnexpectedValueException('Unable to cast value to CalendarDate');
     }
 
     /**
      * @param array<string, mixed> $attributes
+     * @param CalendarDate|null $value
      */
     public function set(Model $model, string $key, mixed $value, array $attributes): ?string
     {
@@ -49,8 +46,6 @@ class CalendarDateCast implements CastsAttributes
             return $value->format(CalendarDate::DEFAULT_STRING_FORMAT);
         }
 
-        throw new UnexpectedValueException(
-            sprintf('Cannot cast value of type %s from CalendarDate', get_debug_type($value)),
-        );
+        throw new UnexpectedValueException('Unable to cast value from CalendarDate');
     }
 }

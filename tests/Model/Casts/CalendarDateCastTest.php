@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Tests;
+namespace Model\Casts;
 
 use Illuminate\Database\Eloquent\Model;
 use Maarheeze\CalendarDate\CalendarDate;
-use Maarheeze\CalendarDate\Laravel\Casts\CalendarDateCast;
+use Maarheeze\CalendarDate\Laravel\Model\Casts\CalendarDateCast;
 use PHPUnit\Framework\TestCase;
 use UnexpectedValueException;
 
