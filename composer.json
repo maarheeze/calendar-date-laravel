@@ -1,5 +1,6 @@
 {
     "name": "maarheeze/calendar-date-laravel",
+    "description": "laravel integration for a timezone-agnostic calendar date value object",
     "type": "library",
     "license": "MIT",
     "config": {
