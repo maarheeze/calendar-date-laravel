@@ -34,7 +34,6 @@ class CalendarDateCast implements CastsAttributes
 
     /**
      * @param array<string, mixed> $attributes
-     * @param CalendarDate|null $value
      */
     public function set(Model $model, string $key, mixed $value, array $attributes): ?string
     {
